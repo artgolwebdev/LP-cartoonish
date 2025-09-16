@@ -23,8 +23,8 @@ export function ClassInfo() {
   }));
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-purple-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-white to-purple-50 mobile-section">
+      <div className="container mx-auto px-4 safe-container">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -91,7 +91,7 @@ export function ClassInfo() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
+            <div className="relative safe-container">
               <motion.div
                 className="absolute -inset-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-3xl blur-2xl opacity-30"
                 animate={{
@@ -104,7 +104,7 @@ export function ClassInfo() {
                   ease: "easeInOut",
                 }}
               />
-              <div className="relative bg-white p-4 rounded-3xl shadow-2xl border-4 border-gradient-to-r from-purple-400 to-pink-400">
+              <div className="relative bg-white p-4 rounded-3xl shadow-2xl border-4 border-gradient-to-r from-purple-400 to-pink-400 overflow-hidden">
                 <Video
                   src={VIDEO_ASSETS.CLASS_INFO}
                   className="w-full h-80 lg:h-96 object-cover rounded-2xl"
@@ -113,10 +113,10 @@ export function ClassInfo() {
               
               {/* Floating elements */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full shadow-lg"
+                className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full shadow-lg text-sm"
                 animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 5, -5, 0],
+                  y: [0, -5, 0],
+                  rotate: [0, 3, -3, 0],
                 }}
                 transition={{
                   duration: 4,

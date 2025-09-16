@@ -9,9 +9,9 @@ export function Hero() {
   const { isMobile, prefersReducedMotion, getOptimizedTransition, getOptimizedAnimation } = useMobileOptimizedMotion();
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 mobile-section">
       {/* Animated background elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 safe-container">
         <motion.div
           className="absolute top-10 sm:top-20 left-4 sm:left-10 w-12 h-12 sm:w-20 sm:h-20 bg-yellow-400 rounded-full opacity-70"
           animate={getOptimizedAnimation(
@@ -142,7 +142,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative">
+            <div className="relative safe-container">
               <motion.div
                 className="absolute -inset-4 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 rounded-3xl blur-2xl opacity-60"
                 animate={{
@@ -154,7 +154,7 @@ export function Hero() {
                   ease: "easeInOut",
                 }}
               />
-              <div className="relative bg-white p-2 sm:p-3 rounded-2xl sm:rounded-3xl shadow-2xl border-2 sm:border-4 border-white">
+              <div className="relative bg-white p-2 sm:p-3 rounded-2xl sm:rounded-3xl shadow-2xl border-2 sm:border-4 border-white overflow-hidden">
                 <Video
                   src={VIDEO_ASSETS.HERO}
                   className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover rounded-xl sm:rounded-2xl"

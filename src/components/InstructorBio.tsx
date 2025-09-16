@@ -25,8 +25,8 @@ export function InstructorBio() {
   const crews = INSTRUCTOR_INFO.CREWS;
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white mobile-section">
+      <div className="container mx-auto px-4 safe-container">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -49,7 +49,7 @@ export function InstructorBio() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
+            <div className="relative safe-container">
               <motion.div
                 className="absolute -inset-8 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 rounded-full blur-3xl opacity-20"
                 animate={{
@@ -62,7 +62,7 @@ export function InstructorBio() {
                   ease: "easeInOut",
                 }}
               />
-              <div className="relative bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/20">
+              <div className="relative bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/20 overflow-hidden">
                 <Video
                   src={VIDEO_ASSETS.INSTRUCTOR_BIO}
                   className="w-full h-96 object-cover rounded-2xl"

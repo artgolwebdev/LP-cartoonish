@@ -10,9 +10,9 @@ export function CallToAction() {
   const { getOptimizedTransition, getOptimizedAnimation } = useMobileOptimizedMotion();
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden mobile-section">
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 safe-container">
         <Video
           src={VIDEO_ASSETS.CALL_TO_ACTION}
           className="w-full h-full object-cover"
@@ -22,7 +22,7 @@ export function CallToAction() {
       </div>
       
       {/* Animated background elements */}
-      <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-10 safe-container">
         <motion.div
           className="absolute top-4 sm:top-10 left-4 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 bg-yellow-300/20 rounded-full"
           animate={getOptimizedAnimation(
@@ -83,7 +83,7 @@ export function CallToAction() {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container mx-auto px-4 relative z-20 safe-container">
         <motion.div
           className="text-center max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}

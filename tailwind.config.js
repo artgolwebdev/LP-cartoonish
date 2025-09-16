@@ -14,6 +14,10 @@ export default {
         'lg': '1024px',
         'xl': '1280px',
         '2xl': '1536px',
+        // Mobile-first approach
+        'mobile': {'max': '767px'},
+        'tablet': {'min': '768px', 'max': '1023px'},
+        'desktop': {'min': '1024px'},
       },
       // Optimized animation durations
       animation: {
@@ -55,6 +59,25 @@ export default {
         'xl': '16px',
         '2xl': '24px',
         '3xl': '32px',
+      },
+      // Mobile-optimized spacing
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+        'safe': 'env(safe-area-inset-top)',
+        'safe-b': 'env(safe-area-inset-bottom)',
+        'safe-l': 'env(safe-area-inset-left)',
+        'safe-r': 'env(safe-area-inset-right)',
+      },
+      // Mobile-optimized max widths
+      maxWidth: {
+        'screen-xs': '100vw',
+        'screen-sm': '100vw',
+        'screen-md': '100vw',
+        'screen-lg': '100vw',
+        'screen-xl': '100vw',
+        'screen-2xl': '100vw',
       },
     },
   },

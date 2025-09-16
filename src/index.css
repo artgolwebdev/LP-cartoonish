@@ -9,12 +9,19 @@
     @apply border-gray-200;
   }
   
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
   body {
     @apply bg-white text-gray-900;
     /* Improve text rendering on mobile */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   
   /* Optimize video elements */
@@ -22,12 +29,15 @@
     object-fit: cover;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    max-width: 100%;
   }
 }
 
 @layer components {
   .container {
     @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   /* Mobile-optimized motion components */
@@ -40,10 +50,23 @@
     @apply relative overflow-hidden;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    max-width: 100%;
   }
   
   /* Mobile-friendly button */
   .btn-mobile {
     @apply min-h-[44px] min-w-[44px] touch-manipulation;
+  }
+  
+  /* Safe container for elements that might overflow */
+  .safe-container {
+    @apply relative overflow-hidden;
+    max-width: 100vw;
+  }
+  
+  /* Mobile-optimized section */
+  .mobile-section {
+    @apply relative overflow-hidden;
+    max-width: 100vw;
   }
 }

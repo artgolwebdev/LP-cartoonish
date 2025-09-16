@@ -1,7 +1,7 @@
 // Class information constants
 export const CLASS_INFO = {
   TITLE: 'ברייקדאנס',
-  LOCATION: 'אלון-הדר',
+  LOCATION: 'מגוונים אלון-הדר',
   GRADES: 'כיתות א׳-ו׳',
   DAY: 'יום ראשון',
   DESCRIPTION: 'ריקוד רחוב מאתגר קצבי ומלא אנרגיה, המשלב תנועות ריקוד עם תרגילי אקרובטיקה',

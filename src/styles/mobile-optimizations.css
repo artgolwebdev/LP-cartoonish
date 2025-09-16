@@ -1,5 +1,16 @@
 /* Mobile-specific optimizations and fixes */
 
+/* Prevent horizontal scrolling globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure all containers respect viewport width */
+* {
+  box-sizing: border-box;
+}
+
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -11,6 +22,37 @@
 
 /* Mobile-specific fixes */
 @media (max-width: 768px) {
+  /* Fix horizontal overflow issues */
+  .container {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Fix inset elements that cause overflow */
+  .-inset-4 {
+    inset: -0.5rem !important;
+  }
+  
+  .-inset-6 {
+    inset: -0.75rem !important;
+  }
+  
+  .-inset-8 {
+    inset: -1rem !important;
+  }
+  
+  /* Ensure absolute positioned elements don't overflow */
+  .absolute {
+    will-change: transform;
+    max-width: 100vw;
+  }
+  
+  /* Fix floating elements positioning */
+  .-top-4, .-right-4, .-left-4, .-bottom-4 {
+    position: relative;
+    margin: 0.5rem;
+  }
+  
   /* Reduce blur effects on mobile for better performance */
   .blur-2xl,
   .blur-3xl {
@@ -34,16 +76,12 @@
     will-change: auto;
     transform: translateZ(0);
     backface-visibility: hidden;
+    max-width: 100%;
   }
   
   /* Reduce animation complexity on mobile */
   .animate-pulse {
     animation-duration: 2s;
-  }
-  
-  /* Optimize floating elements */
-  .absolute {
-    will-change: transform;
   }
   
   /* Reduce shadow complexity on mobile */
@@ -54,6 +92,24 @@
   /* Optimize text rendering */
   h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizeSpeed;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Fix large text that might overflow */
+  .text-8xl {
+    font-size: 3rem !important;
+    line-height: 1.1;
+  }
+  
+  .text-7xl {
+    font-size: 2.5rem !important;
+    line-height: 1.1;
+  }
+  
+  .text-6xl {
+    font-size: 2rem !important;
+    line-height: 1.2;
   }
   
   /* Reduce border radius on very small screens */
@@ -64,6 +120,32 @@
     
     .rounded-2xl {
       border-radius: 0.75rem;
+    }
+    
+    /* Further reduce inset values on very small screens */
+    .-inset-4 {
+      inset: -0.25rem !important;
+    }
+    
+    .-inset-6 {
+      inset: -0.5rem !important;
+    }
+    
+    .-inset-8 {
+      inset: -0.75rem !important;
+    }
+    
+    /* Adjust text sizes for very small screens */
+    .text-8xl {
+      font-size: 2.5rem !important;
+    }
+    
+    .text-7xl {
+      font-size: 2rem !important;
+    }
+    
+    .text-6xl {
+      font-size: 1.75rem !important;
     }
   }
 }
@@ -134,6 +216,29 @@
   .opacity-50 {
     will-change: opacity;
   }
+  
+  /* Fix grid layouts that might overflow */
+  .grid {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Fix flex layouts */
+  .flex {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  /* Ensure all sections respect viewport width */
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Fix motion elements that might overflow */
+  [data-motion] {
+    max-width: 100%;
+  }
 }
 
 /* Fix for iOS Safari video issues */
@@ -163,5 +268,49 @@
   
   .blur-3xl {
     filter: blur(6px) !important;
+  }
+}
+
+/* Loading screen optimizations */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Optimize loading animations for mobile */
+@media (max-width: 768px) {
+  .loading-screen {
+    /* Reduce animation complexity on mobile */
+    animation-duration: 0.5s;
+  }
+  
+  /* Simplify loading dots animation */
+  .loading-dots {
+    animation-duration: 1.5s;
+  }
+  
+  /* Optimize progress bar */
+  .progress-bar {
+    height: 0.25rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .loading-screen h1 {
+    font-size: 2rem !important;
+  }
+  
+  .loading-screen p {
+    font-size: 0.875rem !important;
+  }
+  
+  .loading-dots {
+    animation-duration: 2s;
   }
 }
