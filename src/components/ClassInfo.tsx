@@ -1,30 +1,26 @@
+import React from "react";
 import { motion } from "motion/react";
 import { LazyImage } from "./LazyImage";
 import { Sparkles, Target, Users, Trophy } from "lucide-react";
+import { Video } from "./ui/Video";
+import { VIDEO_ASSETS } from "../constants/assets";
+import { BENEFITS } from "../constants/classInfo";
 
 export function ClassInfo() {
-  const benefits = [
-    {
-      icon: <Target className="text-purple-600" size={24} />,
-      text: "פיתוח חוש קצב",
-      color: "bg-purple-100 border-purple-300"
-    },
-    {
-      icon: <Users className="text-pink-600" size={24} />,
-      text: "יכולת משחק",
-      color: "bg-pink-100 border-pink-300"
-    },
-    {
-      icon: <Sparkles className="text-yellow-600" size={24} />,
-      text: "ביטחון עצמי",
-      color: "bg-yellow-100 border-yellow-300"
-    },
-    {
-      icon: <Trophy className="text-green-600" size={24} />,
-      text: "עמידה מול קהל",
-      color: "bg-green-100 border-green-300"
-    }
-  ];
+  const iconMap = {
+    Target: Target,
+    Users: Users,
+    Sparkles: Sparkles,
+    Trophy: Trophy,
+  };
+
+  const benefits = BENEFITS.map(benefit => ({
+    ...benefit,
+    icon: React.createElement(iconMap[benefit.icon as keyof typeof iconMap], {
+      className: `text-${benefit.color.split('-')[1]}-600`,
+      size: 24
+    })
+  }));
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-purple-50">
@@ -109,15 +105,10 @@ export function ClassInfo() {
                 }}
               />
               <div className="relative bg-white p-4 rounded-3xl shadow-2xl border-4 border-gradient-to-r from-purple-400 to-pink-400">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                <Video
+                  src={VIDEO_ASSETS.CLASS_INFO}
                   className="w-full h-80 lg:h-96 object-cover rounded-2xl"
-                >
-                  <source src="./ny.mp4" type="video/mp4" />
-                </video>
+                />
               </div>
               
               {/* Floating elements */}

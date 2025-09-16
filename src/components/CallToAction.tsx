@@ -1,21 +1,22 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { ArrowLeft, Calendar, MapPin, Users } from "lucide-react";
+import { Video } from "./ui/Video";
+import { VIDEO_ASSETS } from "../constants/assets";
+import { CLASS_INFO, REGISTRATION_URL } from "../constants/classInfo";
+import { useMobileOptimizedMotion } from "../hooks/useMobileOptimizedMotion";
 
 export function CallToAction() {
+  const { getOptimizedTransition, getOptimizedAnimation } = useMobileOptimizedMotion();
+
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <Video
+          src={VIDEO_ASSETS.CALL_TO_ACTION}
           className="w-full h-full object-cover"
-        >
-          <source src="./street.mp4" type="video/mp4" />
-        </video>
+        />
         {/* Video overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/80 via-pink-500/80 to-purple-600/80"></div>
       </div>
@@ -24,43 +25,61 @@ export function CallToAction() {
       <div className="absolute inset-0 z-10">
         <motion.div
           className="absolute top-4 sm:top-10 left-4 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 bg-yellow-300/20 rounded-full"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={getOptimizedAnimation(
+            {
+              scale: [1, 1.3, 1],
+              x: [0, 30, 0],
+              y: [0, -20, 0],
+            },
+            {
+              scale: [1, 1.1, 1],
+              x: [0, 15, 0],
+              y: [0, -10, 0],
+            }
+          )}
+          transition={getOptimizedTransition({
+            desktop: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+            mobile: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+            reducedMotion: { duration: 0.1, repeat: 0 }
+          })}
         />
         <motion.div
           className="absolute bottom-4 sm:bottom-10 right-4 sm:right-10 w-16 h-16 sm:w-24 sm:h-24 bg-cyan-300/20 rounded-full"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, -25, 0],
-            y: [0, 25, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
+          animate={getOptimizedAnimation(
+            {
+              scale: [1, 1.2, 1],
+              x: [0, -25, 0],
+              y: [0, 25, 0],
+            },
+            {
+              scale: [1, 1.1, 1],
+              x: [0, -12, 0],
+              y: [0, 12, 0],
+            }
+          )}
+          transition={getOptimizedTransition({
+            desktop: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 },
+            mobile: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            reducedMotion: { duration: 0.1, repeat: 0 }
+          })}
         />
         <motion.div
           className="absolute top-1/2 left-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-green-300/20 rotate-45"
-          animate={{
-            rotate: [45, 225, 45],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
+          animate={getOptimizedAnimation(
+            {
+              rotate: [45, 225, 45],
+              scale: [1, 1.3, 1],
+            },
+            {
+              rotate: [45, 135, 45],
+              scale: [1, 1.1, 1],
+            }
+          )}
+          transition={getOptimizedTransition({
+            desktop: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            mobile: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+            reducedMotion: { duration: 0.1, repeat: 0 }
+          })}
         />
       </div>
 
@@ -113,7 +132,7 @@ export function CallToAction() {
                 גילאים
               </h3>
               <p className="text-purple-700" style={{ fontWeight: 600 }} dir="rtl">
-                כיתות א׳-ו׳
+                {CLASS_INFO.GRADES}
               </p>
             </motion.div>
 
@@ -127,7 +146,7 @@ export function CallToAction() {
                 מתי?
               </h3>
               <p className="text-purple-700" style={{ fontWeight: 600 }} dir="rtl">
-                יום ראשון
+                {CLASS_INFO.DAY}
               </p>
             </motion.div>
 
@@ -141,7 +160,7 @@ export function CallToAction() {
                 איפה?
               </h3>
               <p className="text-purple-700" style={{ fontWeight: 600 }} dir="rtl">
-                מגוונים אלון-הדר
+                מגוונים {CLASS_INFO.LOCATION}
               </p>
             </motion.div>
           </motion.div>
@@ -173,7 +192,7 @@ export function CallToAction() {
               style={{ fontWeight: 800 }}
             >
               <motion.a
-                href="https://www.migvanim.com/html5/ProLookup.taf?_ID=49047&did=4455&G=12550&SM="
+                href={REGISTRATION_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4"

@@ -1,3 +1,5 @@
+@import './styles/mobile-optimizations.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,11 +11,39 @@
   
   body {
     @apply bg-white text-gray-900;
+    /* Improve text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Optimize video elements */
+  video {
+    object-fit: cover;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
 
 @layer components {
   .container {
     @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Mobile-optimized motion components */
+  .motion-safe {
+    @apply motion-reduce:animate-none;
+  }
+  
+  /* Optimized video container */
+  .video-container {
+    @apply relative overflow-hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  /* Mobile-friendly button */
+  .btn-mobile {
+    @apply min-h-[44px] min-w-[44px] touch-manipulation;
   }
 }

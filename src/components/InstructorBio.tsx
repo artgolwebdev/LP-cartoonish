@@ -1,40 +1,28 @@
+import React from "react";
 import { motion } from "motion/react";
 import { LazyImage } from "./LazyImage";
 import { Award, Star, Globe, Tv } from "lucide-react";
+import { Video } from "./ui/Video";
+import { VIDEO_ASSETS } from "../constants/assets";
+import { INSTRUCTOR_INFO } from "../constants/classInfo";
 
 export function InstructorBio() {
-  const achievements = [
-    {
-      icon: <Award className="text-gold-600" size={20} />,
-      text: "מקום שני באוקראינה בגיל 14",
-      year: "2006",
-      color: "bg-yellow-100 border-yellow-400"
-    },
-    {
-      icon: <Star className="text-gold-600" size={20} />,
-      text: "מקום ראשון בישראל",
-      year: "2006",
-      color: "bg-orange-100 border-orange-400"
-    },
-    {
-      icon: <Globe className="text-blue-600" size={20} />,
-      text: "ייצוג ישראל בגרמניה",
-      year: "2006",
-      color: "bg-blue-100 border-blue-400"
-    },
-    {
-      icon: <Tv className="text-purple-600" size={20} />,
-      text: '"הדבר הגדול הבא"',
-      year: "",
-      color: "bg-purple-100 border-purple-400"
-    }
-  ];
+  const iconMap = {
+    Award: Award,
+    Star: Star,
+    Globe: Globe,
+    Tv: Tv,
+  };
 
-  const crews = [
-    { name: "ברייקרהוליקס", color: "bg-pink-400" },
-    { name: "אנסטופבולז", color: "bg-cyan-400" },
-    { name: "אריות ציון", color: "bg-green-400" }
-  ];
+  const achievements = INSTRUCTOR_INFO.ACHIEVEMENTS.map(achievement => ({
+    ...achievement,
+    icon: React.createElement(iconMap[achievement.icon as keyof typeof iconMap], {
+      className: `text-${achievement.color.split('-')[1]}-600`,
+      size: 20
+    })
+  }));
+
+  const crews = INSTRUCTOR_INFO.CREWS;
 
   return (
     <section className="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
@@ -75,15 +63,10 @@ export function InstructorBio() {
                 }}
               />
               <div className="relative bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/20">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                <Video
+                  src={VIDEO_ASSETS.INSTRUCTOR_BIO}
                   className="w-full h-96 object-cover rounded-2xl"
-                >
-                  <source src="./battle.mp4" type="video/mp4" />
-                </video>
+                />
               </div>
             </div>
           </motion.div>
@@ -99,11 +82,10 @@ export function InstructorBio() {
           >
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
               <h3 className="text-3xl mb-4 text-yellow-300" style={{ fontWeight: 700 }}>
-                ארטיום גולובן (ארט.ארטיק)
+                {INSTRUCTOR_INFO.NAME}
               </h3>
               <p className="text-lg leading-relaxed text-gray-200">
-                ארטיום החל לרקוד בגיל 10 יחד עם קבוצת ברייקדאנס מובילה בסצנת הברייקדאנס העולמית. 
-                בגיל 14 זכה במקום שני באוקראינה.
+                {INSTRUCTOR_INFO.BIO}
               </p>
             </div>
 

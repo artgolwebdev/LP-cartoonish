@@ -1,50 +1,74 @@
 import { motion } from "motion/react";
 import { Music, Star, Zap } from "lucide-react";
+import { Video } from "./ui/Video";
+import { VIDEO_ASSETS } from "../constants/assets";
+import { CLASS_INFO } from "../constants/classInfo";
+import { useMobileOptimizedMotion } from "../hooks/useMobileOptimizedMotion";
 
 export function Hero() {
+  const { isMobile, prefersReducedMotion, getOptimizedTransition, getOptimizedAnimation } = useMobileOptimizedMotion();
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div
           className="absolute top-10 sm:top-20 left-4 sm:left-10 w-12 h-12 sm:w-20 sm:h-20 bg-yellow-400 rounded-full opacity-70"
-          animate={{
-            x: [0, 20, 0],
-            y: [0, -15, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={getOptimizedAnimation(
+            {
+              x: [0, 20, 0],
+              y: [0, -15, 0],
+              rotate: [0, 180, 360],
+            },
+            {
+              x: [0, 10, 0],
+              y: [0, -8, 0],
+              rotate: [0, 90, 180],
+            }
+          )}
+          transition={getOptimizedTransition({
+            desktop: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+            mobile: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+            reducedMotion: { duration: 0.1, repeat: 0 }
+          })}
         />
         <motion.div
           className="absolute top-20 sm:top-40 right-4 sm:right-20 w-10 h-10 sm:w-16 sm:h-16 bg-cyan-400 rounded-full opacity-60"
-          animate={{
-            x: [0, -20, 0],
-            y: [0, 20, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
+          animate={getOptimizedAnimation(
+            {
+              x: [0, -20, 0],
+              y: [0, 20, 0],
+              scale: [1, 1.2, 1],
+            },
+            {
+              x: [0, -10, 0],
+              y: [0, 10, 0],
+              scale: [1, 1.1, 1],
+            }
+          )}
+          transition={getOptimizedTransition({
+            desktop: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            mobile: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+            reducedMotion: { duration: 0.1, repeat: 0 }
+          })}
         />
         <motion.div
           className="absolute bottom-20 sm:bottom-32 left-1/4 w-8 h-8 sm:w-12 sm:h-12 bg-green-400 rotate-45 opacity-50"
-          animate={{
-            rotate: [45, 225, 45],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
+          animate={getOptimizedAnimation(
+            {
+              rotate: [45, 225, 45],
+              scale: [1, 1.3, 1],
+            },
+            {
+              rotate: [45, 135, 45],
+              scale: [1, 1.1, 1],
+            }
+          )}
+          transition={getOptimizedTransition({
+            desktop: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 },
+            mobile: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            reducedMotion: { duration: 0.1, repeat: 0 }
+          })}
         />
       </div>
 
@@ -76,7 +100,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               style={{ fontWeight: 800 }}
             >
-              ברייקדאנס
+              {CLASS_INFO.TITLE}
             </motion.h1>
 
             <motion.div
@@ -86,10 +110,10 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <p className="text-2xl md:text-3xl text-purple-800 mb-2" style={{ fontWeight: 700 }}>
-                אלון-הדר, א׳-ו׳
+                {CLASS_INFO.LOCATION}, {CLASS_INFO.GRADES}
               </p>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                ריקוד רחוב מאתגר קצבי ומלא אנרגיה, המשלב תנועות ריקוד עם תרגילי אקרובטיקה
+                {CLASS_INFO.DESCRIPTION}
               </p>
             </motion.div>
 
@@ -131,15 +155,10 @@ export function Hero() {
                 }}
               />
               <div className="relative bg-white p-2 sm:p-3 rounded-2xl sm:rounded-3xl shadow-2xl border-2 sm:border-4 border-white">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                <Video
+                  src={VIDEO_ASSETS.HERO}
                   className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover rounded-xl sm:rounded-2xl"
-                >
-                  <source src="./artik.mp4" type="video/mp4" />
-                </video>
+                />
               </div>
             </div>
           </motion.div>
