@@ -23,11 +23,11 @@ export function CallToAction() {
       {/* Animated background elements */}
       <div className="absolute inset-0 z-10">
         <motion.div
-          className="absolute top-10 left-10 w-32 h-32 bg-yellow-300/20 rounded-full"
+          className="absolute top-4 sm:top-10 left-4 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 bg-yellow-300/20 rounded-full"
           animate={{
-            scale: [1, 1.5, 1],
-            x: [0, 50, 0],
-            y: [0, -30, 0],
+            scale: [1, 1.3, 1],
+            x: [0, 30, 0],
+            y: [0, -20, 0],
           }}
           transition={{
             duration: 8,
@@ -36,11 +36,11 @@ export function CallToAction() {
           }}
         />
         <motion.div
-          className="absolute bottom-10 right-10 w-24 h-24 bg-cyan-300/20 rounded-full"
+          className="absolute bottom-4 sm:bottom-10 right-4 sm:right-10 w-16 h-16 sm:w-24 sm:h-24 bg-cyan-300/20 rounded-full"
           animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -40, 0],
-            y: [0, 40, 0],
+            scale: [1, 1.2, 1],
+            x: [0, -25, 0],
+            y: [0, 25, 0],
           }}
           transition={{
             duration: 6,
@@ -50,10 +50,10 @@ export function CallToAction() {
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-16 h-16 bg-green-300/20 rotate-45"
+          className="absolute top-1/2 left-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-green-300/20 rotate-45"
           animate={{
             rotate: [45, 225, 45],
-            scale: [1, 1.4, 1],
+            scale: [1, 1.3, 1],
           }}
           transition={{
             duration: 7,
@@ -73,7 +73,7 @@ export function CallToAction() {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-4xl md:text-6xl lg:text-7xl mb-8 text-white drop-shadow-2xl"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-6 sm:mb-8 text-white drop-shadow-2xl"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -169,7 +169,7 @@ export function CallToAction() {
             
             <Button
               asChild
-              className="relative bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-purple-900 px-12 py-6 text-2xl rounded-3xl shadow-2xl border-4 border-white hover:scale-105 transition-all duration-300"
+              className="relative bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-purple-900 px-6 sm:px-12 py-4 sm:py-6 text-lg sm:text-2xl rounded-2xl sm:rounded-3xl shadow-2xl border-2 sm:border-4 border-white hover:scale-105 transition-all duration-300"
               style={{ fontWeight: 800 }}
             >
               <motion.a

@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { LazyImage } from "./LazyImage";
 import { Music, Star, Zap } from "lucide-react";
 
 export function Hero() {
@@ -8,10 +7,10 @@ export function Hero() {
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-20 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-70"
+          className="absolute top-10 sm:top-20 left-4 sm:left-10 w-12 h-12 sm:w-20 sm:h-20 bg-yellow-400 rounded-full opacity-70"
           animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
+            x: [0, 20, 0],
+            y: [0, -15, 0],
             rotate: [0, 180, 360],
           }}
           transition={{
@@ -21,10 +20,10 @@ export function Hero() {
           }}
         />
         <motion.div
-          className="absolute top-40 right-20 w-16 h-16 bg-cyan-400 rounded-full opacity-60"
+          className="absolute top-20 sm:top-40 right-4 sm:right-20 w-10 h-10 sm:w-16 sm:h-16 bg-cyan-400 rounded-full opacity-60"
           animate={{
-            x: [0, -25, 0],
-            y: [0, 25, 0],
+            x: [0, -20, 0],
+            y: [0, 20, 0],
             scale: [1, 1.2, 1],
           }}
           transition={{
@@ -35,7 +34,7 @@ export function Hero() {
           }}
         />
         <motion.div
-          className="absolute bottom-32 left-1/4 w-12 h-12 bg-green-400 rotate-45 opacity-50"
+          className="absolute bottom-20 sm:bottom-32 left-1/4 w-8 h-8 sm:w-12 sm:h-12 bg-green-400 rotate-45 opacity-50"
           animate={{
             rotate: [45, 225, 45],
             scale: [1, 1.3, 1],
@@ -71,7 +70,7 @@ export function Hero() {
             </motion.div>
 
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl mb-6 text-white drop-shadow-2xl"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl mb-6 text-white drop-shadow-2xl"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -131,13 +130,13 @@ export function Hero() {
                   ease: "easeInOut",
                 }}
               />
-              <div className="relative bg-white p-3 rounded-3xl shadow-2xl border-4 border-white">
+              <div className="relative bg-white p-2 sm:p-3 rounded-2xl sm:rounded-3xl shadow-2xl border-2 sm:border-4 border-white">
                 <video
                   autoPlay
                   muted
                   loop
                   playsInline
-                  className="w-full h-96 lg:h-[500px] object-cover rounded-2xl"
+                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover rounded-xl sm:rounded-2xl"
                 >
                   <source src="/artik.mp4" type="video/mp4" />
                 </video>
