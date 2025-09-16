@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { LazyImage } from "./LazyImage";
 import { Sparkles, Target, Users, Trophy } from "lucide-react";
 
 export function ClassInfo() {
@@ -109,7 +109,7 @@ export function ClassInfo() {
                 }}
               />
               <div className="relative bg-white p-4 rounded-3xl shadow-2xl border-4 border-gradient-to-r from-purple-400 to-pink-400">
-                <ImageWithFallback
+                <LazyImage
                   src="https://images.unsplash.com/photo-1443745029291-d5c27bc0b562?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmVha2RhbmNlJTIwZnJlZXplJTIwbW92ZXxlbnwxfHx8fDE3NTc4NTYxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Breakdance freeze move"
                   className="w-full h-80 lg:h-96 object-cover rounded-2xl"

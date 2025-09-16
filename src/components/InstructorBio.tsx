@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { LazyImage } from "./LazyImage";
 import { Award, Star, Globe, Tv } from "lucide-react";
 
 export function InstructorBio() {
@@ -75,7 +75,7 @@ export function InstructorBio() {
                 }}
               />
               <div className="relative bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/20">
-                <ImageWithFallback
+                <LazyImage
                   src="https://images.unsplash.com/photo-1549708319-b6e78d2592ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMHlvdXRoJTIwZGFuY2V8ZW58MXx8fHwxNzU3ODU2MTU1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Urban dance instructor"
                   className="w-full h-96 object-cover rounded-2xl"

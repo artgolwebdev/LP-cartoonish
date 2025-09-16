@@ -1,10 +1,24 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { LazyImage } from "./LazyImage";
 import { Music, Star, Zap } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/artik.mp4" type="video/mp4" />
+        </video>
+        {/* Video overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/80 via-pink-500/80 to-orange-400/80"></div>
+      </div>
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -132,7 +146,7 @@ export function Hero() {
                 }}
               />
               <div className="relative bg-white p-3 rounded-3xl shadow-2xl border-4 border-white">
-                <ImageWithFallback
+                <LazyImage
                   src="https://images.unsplash.com/photo-1611418608121-9c69caf8aa98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmVha2RhbmNpbmclMjBzdHJlZXQlMjBkYW5jZXxlbnwxfHx8fDE3NTc4NTYxNTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Breakdance"
                   className="w-full h-96 lg:h-[500px] object-cover rounded-2xl"
