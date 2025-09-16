@@ -4,9 +4,24 @@ import { ArrowLeft, Calendar, MapPin, Users } from "lucide-react";
 
 export function CallToAction() {
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/street.mp4" type="video/mp4" />
+        </video>
+        {/* Video overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-400/80 via-pink-500/80 to-purple-600/80"></div>
+      </div>
+      
       {/* Animated background elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-10">
         <motion.div
           className="absolute top-10 left-10 w-32 h-32 bg-yellow-300/20 rounded-full"
           animate={{
@@ -49,7 +64,7 @@ export function CallToAction() {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <motion.div
           className="text-center max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
