@@ -82,7 +82,7 @@ export function InstructorBio() {
                   playsInline
                   className="w-full h-96 object-cover rounded-2xl"
                 >
-                  <source src="/battle.mp4" type="video/mp4" />
+                  <source src="./battle.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>

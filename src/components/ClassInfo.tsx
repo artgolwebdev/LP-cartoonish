@@ -116,7 +116,7 @@ export function ClassInfo() {
                   playsInline
                   className="w-full h-80 lg:h-96 object-cover rounded-2xl"
                 >
-                  <source src="/ny.mp4" type="video/mp4" />
+                  <source src="./ny.mp4" type="video/mp4" />
                 </video>
               </div>
               

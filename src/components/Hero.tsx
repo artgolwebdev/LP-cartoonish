@@ -138,7 +138,7 @@ export function Hero() {
                   playsInline
                   className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover rounded-xl sm:rounded-2xl"
                 >
-                  <source src="/artik.mp4" type="video/mp4" />
+                  <source src="./artik.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>

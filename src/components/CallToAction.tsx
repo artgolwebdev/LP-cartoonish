@@ -14,7 +14,7 @@ export function CallToAction() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/street.mp4" type="video/mp4" />
+          <source src="./street.mp4" type="video/mp4" />
         </video>
         {/* Video overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/80 via-pink-500/80 to-purple-600/80"></div>
